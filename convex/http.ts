@@ -271,13 +271,41 @@ http.route({
       );
     } catch (error) {
       console.error("Error generating fitness plan:", error);
+      
+      // Enhanced error handling for different scenarios
+      let errorMessage = "Failed to generate fitness plan. Please try again.";
+      let statusCode = 500;
+      
+      if (error instanceof Error) {
+        // Check for API quota errors
+        if (error.message.includes("429") || error.message.includes("quota") || error.message.includes("Too Many Requests")) {
+          errorMessage = "API quota exceeded. Please try again in a few moments or contact support.";
+          statusCode = 429;
+        } 
+        // Check for authentication errors
+        else if (error.message.includes("API key") || error.message.includes("authentication")) {
+          errorMessage = "API authentication failed. Please contact support.";
+          statusCode = 401;
+        }
+        // Check for network errors
+        else if (error.message.includes("fetch") || error.message.includes("network")) {
+          errorMessage = "Network error. Please check your connection and try again.";
+          statusCode = 503;
+        }
+        // Generic error with message
+        else {
+          errorMessage = `Error: ${error.message}`;
+        }
+      }
+      
       return new Response(
         JSON.stringify({
           success: false,
-          error: error instanceof Error ? error.message : String(error),
+          error: errorMessage,
+          errorType: statusCode === 429 ? "QUOTA_EXCEEDED" : statusCode === 401 ? "AUTH_ERROR" : "GENERAL_ERROR",
         }),
         {
-          status: 500,
+          status: statusCode,
           headers: { "Content-Type": "application/json" },
         }
       );

@@ -60,3 +60,23 @@ export const getUserPlans = query({
     return plans;
   },
 });
+
+export const deletePlan = mutation({
+  args: { 
+    planId: v.id("plans"),
+    userId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    // Verify the plan belongs to the user
+    const plan = await ctx.db.get(args.planId);
+    
+    if (!plan || plan.userId !== args.userId) {
+      throw new Error("Plan not found or unauthorized");
+    }
+
+    // Delete the plan
+    await ctx.db.delete(args.planId);
+
+    return { success: true };
+  },
+});
