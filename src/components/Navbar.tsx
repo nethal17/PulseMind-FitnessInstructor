@@ -9,7 +9,7 @@ const Navbar = () => {
     const { isSignedIn } = useUser();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    const handleProtectedNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const handleProtectedNavigation = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (!isSignedIn) {
             e.preventDefault();
             // Trigger the sign-in modal by clicking the hidden sign-in button
@@ -57,7 +57,7 @@ const Navbar = () => {
 
                     <Link
                         href="/generate-program"
-                        onClick={(e) => handleProtectedNavigation(e, '/generate-program')}
+                        onClick={(e) => handleProtectedNavigation(e)}
                         className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
                     >
                         <DumbbellIcon size={22} />
@@ -66,7 +66,7 @@ const Navbar = () => {
 
                     <Link
                         href="/workout-tracking"
-                        onClick={(e) => handleProtectedNavigation(e, '/workout-tracking')}
+                        onClick={(e) => handleProtectedNavigation(e)}
                         className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
                     >
                         <ActivityIcon size={22} />
@@ -75,7 +75,7 @@ const Navbar = () => {
 
                     <Link
                         href="/profile"
-                        onClick={(e) => handleProtectedNavigation(e, '/profile')}
+                        onClick={(e) => handleProtectedNavigation(e)}
                         className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
                     >
                         <UserIcon size={22} />
@@ -137,7 +137,7 @@ const Navbar = () => {
                                 className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
                                 onClick={(e) => {
                                     setMobileMenuOpen(false);
-                                    handleProtectedNavigation(e, '/generate-program');
+                                    handleProtectedNavigation(e);
                                 }}
                             >
                                 <DumbbellIcon size={22} />
@@ -149,7 +149,7 @@ const Navbar = () => {
                                 className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
                                 onClick={(e) => {
                                     setMobileMenuOpen(false);
-                                    handleProtectedNavigation(e, '/workout-tracking');
+                                    handleProtectedNavigation(e);
                                 }}
                             >
                                 <ActivityIcon size={22} />
@@ -161,7 +161,7 @@ const Navbar = () => {
                                 className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
                                 onClick={(e) => {
                                     setMobileMenuOpen(false);
-                                    handleProtectedNavigation(e, '/profile');
+                                    handleProtectedNavigation(e);
                                 }}
                             >
                                 <UserIcon size={22} />

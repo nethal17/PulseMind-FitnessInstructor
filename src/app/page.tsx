@@ -313,7 +313,7 @@ const HomePage = () => {
                 </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
-                "The AI understood exactly what I needed. The plan was perfect for my busy schedule and the results speak for themselves!"
+                &ldquo;The AI understood exactly what I needed. The plan was perfect for my busy schedule and the results speak for themselves!&rdquo;
               </p>
               <div className="flex gap-1 mt-4">
                 {[...Array(5)].map((_, i) => (
@@ -332,7 +332,7 @@ const HomePage = () => {
                 </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
-                "Best investment in my fitness journey. The voice interface makes it so easy to get started, and the workouts are challenging!"
+                &ldquo;Best investment in my fitness journey. The voice interface makes it so easy to get started, and the workouts are challenging!&rdquo;
               </p>
               <div className="flex gap-1 mt-4">
                 {[...Array(5)].map((_, i) => (
@@ -351,7 +351,7 @@ const HomePage = () => {
                 </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
-                "From couch to marathon! The progressive plan kept me motivated and injury-free. This AI knows what it's doing!"
+                &ldquo;From couch to marathon! The progressive plan kept me motivated and injury-free. This AI knows what it&apos;s doing!&rdquo;
               </p>
               <div className="flex gap-1 mt-4">
                 {[...Array(5)].map((_, i) => (
@@ -379,7 +379,7 @@ const HomePage = () => {
                 <span className="text-primary">Transform?</span>
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join 500+ users who've already started their fitness journey with AI-powered personalization
+                Join 500+ users who&apos;ve already started their fitness journey with AI-powered personalization
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

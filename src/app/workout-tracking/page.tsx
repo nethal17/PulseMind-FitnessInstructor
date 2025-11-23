@@ -3,17 +3,14 @@
 import { useUser } from "@clerk/nextjs";
 import { useQuery, useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
-import { Id } from "../../../convex/_generated/dataModel";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import CornerElements from "@/components/CornerElements";
 import { 
   CheckCircle2Icon, 
   CircleIcon, 
   TimerIcon, 
   TrophyIcon,
-  CalendarIcon,
   DumbbellIcon,
   PlayIcon,
   PauseIcon,

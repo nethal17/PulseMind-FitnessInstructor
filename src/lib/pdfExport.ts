@@ -114,7 +114,7 @@ export const exportToPDF = (plan: FitnessPlan, userName?: string) => {
   yPos += 10;
 
   // Exercise Days
-  plan.workoutPlan.exercises.forEach((exerciseDay, dayIndex) => {
+  plan.workoutPlan.exercises.forEach((exerciseDay) => {
     // Check if we need a new page
     if (yPos > 250) {
       doc.addPage();
@@ -208,7 +208,7 @@ export const exportToPDF = (plan: FitnessPlan, userName?: string) => {
   yPos += 18;
 
   // Meals
-  plan.dietPlan.meals.forEach((meal, mealIndex) => {
+  plan.dietPlan.meals.forEach((meal) => {
     // Check if we need a new page
     if (yPos > 240) {
       doc.addPage();
@@ -231,7 +231,7 @@ export const exportToPDF = (plan: FitnessPlan, userName?: string) => {
     doc.setFontSize(9);
     doc.setFont("helvetica", "normal");
     
-    meal.foods.forEach((food, foodIndex) => {
+    meal.foods.forEach((food) => {
       if (yPos > 280) {
         doc.addPage();
         yPos = 20;
