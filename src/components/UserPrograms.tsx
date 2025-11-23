@@ -87,7 +87,6 @@ const UserPrograms = () => {
                   <div className="flex-1">
                     <CardTitle className="text-xl text-white font-mono mb-1">
                       {program.first_name}
-                      <span className="text-primary">.exe</span>
                     </CardTitle>
                     <div className="text-sm text-gray-400 flex items-center gap-2 font-mono">
                       <Users className="h-3.5 w-3.5" />

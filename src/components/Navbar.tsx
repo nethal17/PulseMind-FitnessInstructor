@@ -1,7 +1,7 @@
 "use client";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { DumbbellIcon, HomeIcon, UserIcon, ZapIcon, MenuIcon, XIcon } from "lucide-react";
+import { DumbbellIcon, HomeIcon, UserIcon, ZapIcon, MenuIcon, XIcon, ActivityIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 
@@ -9,14 +9,28 @@ const Navbar = () => {
     const { isSignedIn } = useUser();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const handleProtectedNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (!isSignedIn) {
+            e.preventDefault();
+            // Trigger the sign-in modal by clicking the hidden sign-in button
+            const signInButton = document.getElementById('hidden-signin-trigger');
+            signInButton?.click();
+        }
+    };
+
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-gray-100 backdrop-blur-md border-b border-primary py-3 shadow-lg">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-gray-100 backdrop-blur-md border-b border-primary py-3 shadow-md">
             <div className="container flex items-center justify-between mx-auto px-4">
+                {/* Hidden sign-in button for triggering modal */}
+                <SignInButton mode="modal">
+                    <button id="hidden-signin-trigger" className="hidden" aria-hidden="true" />
+                </SignInButton>
+                
                 <div className="flex items-center justify-between w-full md:w-auto">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="p-1 bg-primary/30 rounded">
-                            <ZapIcon className="w-5 h-5 text-primary animate-pulse" />
-                        </div>
+                    <div className="p-2 bg-primary/20 rounded-lg border border-primary/30 group-hover:bg-primary/30">
+                        <ZapIcon className="w-6 h-6 text-primary" />
+                    </div>
                         <span className="text-xl font-bold font-mono">
                             pulse<span className="text-primary">mind</span>.ai
                         </span>
@@ -43,6 +57,7 @@ const Navbar = () => {
 
                     <Link
                         href="/generate-program"
+                        onClick={(e) => handleProtectedNavigation(e, '/generate-program')}
                         className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
                     >
                         <DumbbellIcon size={22} />
@@ -50,7 +65,17 @@ const Navbar = () => {
                     </Link>
 
                     <Link
+                        href="/workout-tracking"
+                        onClick={(e) => handleProtectedNavigation(e, '/workout-tracking')}
+                        className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
+                    >
+                        <ActivityIcon size={22} />
+                        <span>Track</span>
+                    </Link>
+
+                    <Link
                         href="/profile"
+                        onClick={(e) => handleProtectedNavigation(e, '/profile')}
                         className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono"
                     >
                         <UserIcon size={22} />
@@ -74,17 +99,19 @@ const Navbar = () => {
                         </>
                     ) : (
                         <>
-                            <SignInButton>
+                            <SignInButton mode="modal">
                                 <Button
                                     variant={"outline"}
-                                    className="border border-primary text-primary hover:text-white hover:bg-primary"
+                                    className="border border-primary bg-gray-100 text-primary hover:bg-white hover:text-primary"
                                 >
                                     Sign In
                                 </Button>
                             </SignInButton>
 
-                            <SignUpButton>
-                                <Button className="bg-primary text-white hover:bg-background hover:text-primary border border-primary">
+                            <SignUpButton mode="modal">
+                                <Button 
+                                    variant={"outline"}
+                                    className="border border-primary bg-primary text-white hover:bg-blue-500 hover:text-white">
                                     Sign Up
                                 </Button>
                             </SignUpButton>
@@ -108,16 +135,34 @@ const Navbar = () => {
                             <Link
                                 href="/generate-program"
                                 className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={(e) => {
+                                    setMobileMenuOpen(false);
+                                    handleProtectedNavigation(e, '/generate-program');
+                                }}
                             >
                                 <DumbbellIcon size={22} />
                                 <span>Generate</span>
                             </Link>
 
                             <Link
+                                href="/workout-tracking"
+                                className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
+                                onClick={(e) => {
+                                    setMobileMenuOpen(false);
+                                    handleProtectedNavigation(e, '/workout-tracking');
+                                }}
+                            >
+                                <ActivityIcon size={22} />
+                                <span>Track Workouts</span>
+                            </Link>
+
+                            <Link
                                 href="/profile"
                                 className="flex items-center gap-1.5 text-md hover:text-primary transition-colors font-mono py-2"
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={(e) => {
+                                    setMobileMenuOpen(false);
+                                    handleProtectedNavigation(e, '/profile');
+                                }}
                             >
                                 <UserIcon size={22} />
                                 <span>Profile</span>
@@ -141,8 +186,9 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <>
-                                    <SignInButton>
+                                    <SignInButton mode="modal">
                                         <Button
+
                                             variant={"outline"}
                                             className="w-full border border-primary text-primary hover:text-white hover:bg-primary"
                                             onClick={() => setMobileMenuOpen(false)}
@@ -151,7 +197,7 @@ const Navbar = () => {
                                         </Button>
                                     </SignInButton>
 
-                                    <SignUpButton>
+                                    <SignUpButton mode="modal">
                                         <Button 
                                             className="w-full bg-primary text-white hover:bg-background hover:text-primary border border-primary"
                                             onClick={() => setMobileMenuOpen(false)}

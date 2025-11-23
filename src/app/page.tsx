@@ -1,12 +1,14 @@
 import TerminalOverlay from "@/components/TerminalOverlay";
 import UserPrograms from "@/components/UserPrograms";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { ArrowRightIcon, BrainCircuitIcon, DumbbellIcon, SparklesIcon, Zap, Shield, Target, TrendingUp, CheckCircle, Clock, Users } from "lucide-react";
 import Link from "next/link";
 
 const HomePage = () => {
   return (
     <div className="flex flex-col min-h-screen text-foreground overflow-hidden">
+      {/* HERO SECTION */}
       <section className="relative z-10 py-16 flex-grow">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
@@ -114,7 +116,305 @@ const HomePage = () => {
         </div>
       </section>
 
-      <UserPrograms/>      
+      {/* USER PROGRAMS SECTION */}
+      <UserPrograms/>
+
+      {/* HOW IT WORKS SECTION */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Section Header */}
+          <div className="text-center mb-16 relative">
+            <div className="inline-block relative">
+              <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+                <span className="text-foreground">How </span>
+                <span className="text-primary">It Works</span>
+              </h2>
+              <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+            </div>
+            <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
+              Get your personalized fitness plan in <span className="text-primary font-semibold">3 simple steps</span>
+            </p>
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <Card className="bg-card backdrop-blur-sm border-2 border-primary/30 overflow-hidden relative group hover:border-primary/60 transition-all">
+              <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-primary"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-primary"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-primary"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-primary"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary font-mono">01</span>
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-primary to-transparent"></div>
+                </div>
+                
+                <div className="mb-6 w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <BrainCircuitIcon className="w-8 h-8 text-primary" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-background mb-3 font-mono">Voice Consultation</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Talk to our AI assistant about your fitness goals, experience level, and preferences. Natural conversation, no forms to fill.
+                </p>
+              </div>
+            </Card>
+
+            {/* Step 2 */}
+            <Card className="bg-card backdrop-blur-sm border-2 border-primary/30 overflow-hidden relative group hover:border-primary/60 transition-all">
+              <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-primary"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-primary"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-primary"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-primary"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary font-mono">02</span>
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-primary to-transparent"></div>
+                </div>
+                
+                <div className="mb-6 w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <SparklesIcon className="w-8 h-8 text-primary" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-background mb-3 font-mono">AI Generation</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Our advanced AI analyzes your profile and creates a customized workout and nutrition plan in under 2 minutes.
+                </p>
+              </div>
+            </Card>
+
+            {/* Step 3 */}
+            <Card className="bg-card backdrop-blur-sm border-2 border-primary/30 overflow-hidden relative group hover:border-primary/60 transition-all">
+              <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-primary"></div>
+              <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-primary"></div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-primary"></div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-primary"></div>
+              
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary font-mono">03</span>
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-primary to-transparent"></div>
+                </div>
+                
+                <div className="mb-6 w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Target className="w-8 h-8 text-primary" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-background mb-3 font-mono">Start Training</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Access your plan instantly, track workouts, and watch your progress. Update anytime as you evolve.
+                </p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES SECTION */}
+      <section className="py-24 relative bg-gradient-to-b from-transparent to-primary/5">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+              <span className="text-foreground">Why Choose </span>
+              <span className="text-primary">PulseMind</span>
+            </h2>
+            <p className="text-gray-400 mt-6 text-lg max-w-2xl mx-auto">
+              Advanced AI technology meets personalized fitness coaching
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 shadow-lg shadow-primary/40 transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <Zap className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">Lightning Fast</h3>
+              <p className="text-sm text-gray-400">Get your complete plan in under 2 minutes with our optimized AI system</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 transition-all group shadow-lg shadow-primary/40">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <Shield className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">100% Personalized</h3>
+              <p className="text-sm text-gray-400">Every plan is unique, tailored to your goals, experience, and lifestyle</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 transition-all group shadow-lg shadow-primary/40">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <TrendingUp className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">Track Progress</h3>
+              <p className="text-sm text-gray-400">Log workouts, monitor improvements, and break personal records</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 transition-all group shadow-lg shadow-primary/40">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <DumbbellIcon className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">Adaptive Workouts</h3>
+              <p className="text-sm text-gray-400">Plans that evolve with you, from beginner to advanced levels</p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 transition-all group shadow-lg shadow-primary/40">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <Users className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">Voice Powered</h3>
+              <p className="text-sm text-gray-400">Natural conversation interface - just talk, no typing required</p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="p-6 bg-card border border-primary/30 rounded-lg hover:border-primary/60 transition-all group shadow-lg shadow-primary/40">
+              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-all">
+                <Clock className="w-6 h-6 text-background" />
+              </div>
+              <h3 className="text-lg font-bold text-primary mb-2 font-mono">24/7 Access</h3>
+              <p className="text-sm text-gray-400">Your AI coach is always available, whenever you need guidance</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-mono text-foreground mb-4">
+              <span className="text-foreground">What Users </span>
+              <span className="text-primary">Say</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Testimonial 1 */}
+            <Card className="bg-card border-2 border-primary/30 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <img src="https://randomuser.me/api/portraits/men/74.jpg" alt="User" className="w-12 h-12 rounded-full border-2 border-primary" />
+                <div>
+                  <p className="font-bold text-background">Peter Paul</p>
+                  <p className="text-sm text-primary">Lost 15kg in 3 months</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                "The AI understood exactly what I needed. The plan was perfect for my busy schedule and the results speak for themselves!"
+              </p>
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-4 h-4 text-primary" />
+                ))}
+              </div>
+            </Card>
+
+            {/* Testimonial 2 */}
+            <Card className="bg-card border-2 border-primary/30 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <img src="https://media.gettyimages.com/id/2159296610/photo/happy-female-athlete-on-sports-training-in-a-gym.jpg?s=612x612&w=gi&k=20&c=Bq2uWXFZbtVRh7oYEm2Q0mIpTSVSC6NEex48f5olVbk=" alt="User" className="w-12 h-12 rounded-full border-2 border-primary" />
+                <div>
+                  <p className="font-bold text-background">Sarah Chen</p>
+                  <p className="text-sm text-primary">Gained 8kg muscle</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                "Best investment in my fitness journey. The voice interface makes it so easy to get started, and the workouts are challenging!"
+              </p>
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-4 h-4 text-primary" />
+                ))}
+              </div>
+            </Card>
+
+            {/* Testimonial 3 */}
+            <Card className="bg-card border-2 border-primary/30 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="User" className="w-12 h-12 rounded-full border-2 border-primary" />
+                <div>
+                  <p className="font-bold text-background">John Davis</p>
+                  <p className="text-sm text-primary">Marathon ready in 6 months</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                "From couch to marathon! The progressive plan kept me motivated and injury-free. This AI knows what it's doing!"
+              </p>
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <CheckCircle key={i} className="w-4 h-4 text-primary" />
+                ))}
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent"></div>
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
+          <Card className="bg-card backdrop-blur-sm border-2 border-primary/50 overflow-hidden relative">
+            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-primary"></div>
+            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-primary"></div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-primary"></div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-primary"></div>
+            
+            <div className="p-12 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold font-mono mb-6">
+                <span className="text-background">Ready to </span>
+                <span className="text-primary">Transform?</span>
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join 500+ users who've already started their fitness journey with AI-powered personalization
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-primary text-primary-foreground px-8 py-6 text-lg font-medium border-2 border-primary hover:bg-background hover:text-primary transition-all"
+                >
+                  <Link href="/generate-program" className="flex items-center font-mono">
+                    Start Your Journey
+                    <ArrowRightIcon className="ml-2 size-5" />
+                  </Link>
+                </Button>
+                
+                <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <Clock className="w-4 h-4" />
+                  <span>Takes less than 2 minutes</span>
+                </div>
+              </div>
+
+              <div className="mt-8 flex items-center justify-center gap-8 text-sm font-mono">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-gray-300">No credit card required</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-gray-300">Instant access</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+      
     </div>
   );
 };

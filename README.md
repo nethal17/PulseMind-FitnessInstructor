@@ -1,6 +1,8 @@
-# Pulse Mind - AI-Powered Fitness Platform
+# PulseMind - AI Fitness Instructor
 
-> Transform your body with advanced AI technology. Get personalized diet plans and workout routines designed just for you.
+![alt text](image.png)
+
+> Your personal AI-powered fitness companion. Transform your fitness journey with personalized workout plans, diet recommendations, and real-time AI coaching.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0.0-blue)](https://reactjs.org/)
@@ -9,64 +11,63 @@
 
 ## Features
 
-- 🤖 **AI-Powered Conversations** - Talk to our AI assistant powered by Google Generative AI and Vapi
-- 📋 **Personalized Workout Plans** - Custom exercise routines tailored to your fitness goals
-- 🥗 **Custom Diet Plans** - Personalized meal plans with calorie tracking
-- 👤 **User Profiles** - Manage your fitness programs and track progress
-- 🔐 **Secure Authentication** - User authentication powered by Clerk
-- 💾 **Real-time Database** - Convex backend for seamless data synchronization
-- 🎨 **Modern UI/UX** - Cyberpunk-inspired design with smooth animations
-- 📱 **Responsive Design** - Optimized for all devices
+- **AI Voice Coach** - Interactive voice-powered AI assistant using Vapi for natural conversations
+- **Personalized Workout Plans** - Custom exercise routines tailored to your fitness level and goals
+- **Smart Diet Planning** - AI-generated meal plans with calorie tracking and nutritional guidance
+- **Workout Tracking** - Monitor your progress and track completed workouts
+- **User Profiles** - Comprehensive profile management with fitness program history
+- **Secure Authentication** - Enterprise-grade security with Clerk authentication
+- **Real-time Sync** - Convex-powered backend for instant data synchronization
+- **Cyberpunk UI** - Modern, futuristic interface with smooth animations
+- **Fully Responsive** - Optimized experience across desktop, tablet, and mobile devices
+- **PDF Export** - Download your fitness plans as PDF documents
 
 ## Tech Stack
 
 ### Frontend
-- **Framework**: Next.js 15.2.4 (App Router)
+- **Framework**: Next.js 15.2.4 with App Router
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 4
-- **UI Components**: Radix UI primitives (Accordion, Dialog, Tabs, etc.)
+- **UI Components**: Radix UI (Accordion, Dialog, Sheet, Tabs, Card, Button)
 - **Icons**: Lucide React
+- **PDF Generation**: jsPDF
 
 ### Backend & Services
-- **Database**: Convex (real-time backend)
+- **Database**: Convex (serverless real-time backend)
 - **Authentication**: Clerk
-- **AI Integration**: 
-  - Google Generative AI
-  - Vapi AI for voice interactions
-- **Webhooks**: Svix
+- **AI Services**: 
+  - Google Generative AI (Gemini)
+  - Vapi AI (voice interactions)
+- **Webhooks**: Svix for secure webhook handling
 
 ### Development Tools
-- **Build Tool**: Turbopack (Next.js)
-- **Linting**: ESLint
+- **Build Tool**: Turbopack
+- **Linting**: ESLint 9
 - **Package Manager**: npm/yarn/pnpm
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
+Ensure you have the following installed:
 - Node.js 20.x or higher
 - npm, yarn, or pnpm
 - Git
 
-## Installation
+## Quick Start
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/nethal17/fitness-ai.git
-   cd fitness-ai
+   cd PulseMind-FitnessInstructor
    ```
 
 2. **Install dependencies**
    ```bash
    npm install
-   # or
-   yarn install
-   # or
-   pnpm install
    ```
 
-3. **Set up environment variables**
+3. **Environment Setup**
    
-   Create a `.env.local` file in the root directory with the following variables:
+   Create a `.env.local` file in the root directory:
    ```env
    # Clerk Authentication
    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
@@ -74,203 +75,152 @@ Before you begin, ensure you have the following installed:
    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
    
-   # Convex
+   # Convex Backend
    CONVEX_DEPLOYMENT=your_convex_deployment
    NEXT_PUBLIC_CONVEX_URL=your_convex_url
    
    # Google Generative AI
    GOOGLE_GENERATIVE_AI_API_KEY=your_google_ai_api_key
    
-   # Vapi AI
+   # Vapi Voice AI
    NEXT_PUBLIC_VAPI_PUBLIC_KEY=your_vapi_public_key
    VAPI_PRIVATE_KEY=your_vapi_private_key
    ```
 
-4. **Set up Convex**
+4. **Initialize Convex**
    ```bash
    npx convex dev
    ```
 
-5. **Run the development server**
+5. **Start development server**
    ```bash
    npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
    ```
 
 6. **Open your browser**
    
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Project Structure
 
 ```
-fitness-ai/
+PulseMind-FitnessInstructor/
 ├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── (auth)/            # Authentication routes
-│   │   │   ├── sign-in/
-│   │   │   └── sign-up/
-│   │   ├── generate-program/  # AI program generation
-│   │   ├── profile/           # User profile page
-│   │   ├── layout.tsx         # Root layout
-│   │   ├── page.tsx           # Home page
-│   │   └── globals.css        # Global styles
-│   ├── components/            # React components
-│   │   ├── ui/               # Reusable UI components
-│   │   ├── CornerElements.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── NoFitnessPlan.tsx
-│   │   ├── ProfileHeader.tsx
-│   │   ├── TerminalOverlay.tsx
-│   │   └── UserPrograms.tsx
-│   ├── constants/            # App constants
-│   ├── lib/                  # Utility functions
-│   │   ├── utils.ts
-│   │   └── vapi.ts
-│   └── providers/            # Context providers
-│       └── ConvexClerkProvider.tsx
-├── convex/                   # Convex backend
-│   ├── schema.ts            # Database schema
-│   ├── plans.ts             # Fitness plans logic
-│   ├── users.ts             # User management
-│   ├── auth.config.ts       # Auth configuration
-│   └── http.ts              # HTTP endpoints
-├── public/                  # Static assets
-└── package.json
+│   ├── app/                      # Next.js App Router
+│   │   ├── (auth)/               # Auth group routes
+│   │   │   ├── sign-in/          # Sign in page
+│   │   │   └── sign-up/          # Sign up page
+│   │   ├── generate-program/     # AI program generator
+│   │   ├── profile/              # User profile dashboard
+│   │   ├── workout-tracking/     # Workout tracking interface
+│   │   ├── layout.tsx            # Root layout with providers
+│   │   ├── page.tsx              # Homepage
+│   │   └── globals.css           # Global styles & animations
+│   ├── components/               # React components
+│   │   ├── ui/                   # shadcn/ui components
+│   │   │   ├── accordion.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── dialog.tsx
+│   │   │   ├── sheet.tsx
+│   │   │   └── tabs.tsx
+│   │   ├── CornerElements.tsx   # Decorative corner UI
+│   │   ├── Footer.tsx           # Footer component
+│   │   ├── Navbar.tsx           # Navigation bar
+│   │   ├── NoFitnessPlan.tsx    # Empty state component
+│   │   ├── ProfileHeader.tsx    # Profile header section
+│   │   ├── TerminalOverlay.tsx  # Terminal-style overlay
+│   │   └── UserPrograms.tsx     # User programs display
+│   ├── constants/               # App-wide constants
+│   │   └── index.ts
+│   ├── lib/                     # Utility libraries
+│   │   ├── pdfExport.ts         # PDF generation utilities
+│   │   ├── utils.ts             # General utilities
+│   │   └── vapi.ts              # Vapi client configuration
+│   ├── providers/               # React context providers
+│   │   └── ConvexClerkProvider.tsx
+│   └── middleware.ts           # Next.js middleware
+├── convex/                     # Convex backend
+│   ├── _generated/             # Auto-generated Convex files
+│   ├── auth.config.ts          # Clerk + Convex integration
+│   ├── http.ts                 # HTTP endpoints
+│   ├── plans.ts                # Fitness plans CRUD
+│   ├── schema.ts               # Database schema
+│   ├── users.ts                # User management
+│   └── workouts.ts             # Workout operations
+├── public/                     # Static assets
+├── components.json             # shadcn/ui configuration
+├── next.config.ts              # Next.js configuration
+├── tailwind.config.js          # Tailwind CSS config
+├── tsconfig.json               # TypeScript configuration
+└── package.json                # Dependencies
 ```
 
-## Database Schema
 
-### Users
-- `name`: User's display name
-- `email`: User's email address
-- `image`: Profile picture (optional)
-- `clerkId`: Clerk authentication ID
+## Key Features
 
-### Plans
-- `userId`: Reference to user
-- `name`: Plan name
-- `workoutPlan`: Exercise schedule and routines
-- `dietPlan`: Daily calories and meal plans
-- `isActive`: Whether the plan is currently active
+### 1. AI-Powered Program Generation
+- Natural language conversation with AI fitness coach
+- Voice-enabled interactions via Vapi
+- Generates comprehensive workout and diet plans
+- Considers user's fitness level, goals, and preferences
 
-## Key Features Explained
+### 2. Workout Tracking
+- Track daily workout completion
+- Monitor progress over time
+- View detailed exercise information
+- Mark workouts as complete
 
-### AI Program Generation
-Users can interact with an AI assistant to generate personalized fitness programs. The system analyzes user input and creates:
-- Custom workout schedules with exercises, sets, and reps
-- Tailored diet plans with daily calorie targets
-- Meal recommendations for breakfast, lunch, and dinner
+### 3. Profile Management
+- View all fitness programs (active and archived)
+- Toggle between different plans
+- Access detailed workout schedules
+- Review personalized diet recommendations
+- Export plans to PDF
 
-### User Authentication
-Secure authentication flow using Clerk:
-- Sign up/Sign in pages
-- Protected routes
+### 4. Secure Authentication
+- Email/password authentication
+- OAuth providers support
+- Protected routes with middleware
 - Session management
-
-### Profile Management
-Users can:
-- View their fitness programs
-- Track active and archived plans
-- Access workout and diet details
-
-## Available Scripts
-
-```bash
-# Start development server with Turbopack
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm run start
-
-# Run ESLint
-npm run lint
-```
-
-## Configuration
-
-### Tailwind CSS
-Configured with custom animations and cyber-themed design tokens. See `tailwind.config.js` for customization options.
-
-### TypeScript
-Strict type checking enabled. Configuration in `tsconfig.json`.
-
-### ESLint
-Next.js recommended ESLint configuration with custom rules in `eslint.config.mjs`.
-
-## Deployment
-
-### Vercel (Recommended)
-The easiest way to deploy your Next.js app:
-
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com/new)
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
-### Other Platforms
-This app can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- DigitalOcean App Platform
-- Railway
-
-**Important**: Make sure to set up all environment variables and Convex deployment on your chosen platform.
-
-## Features in Detail
-
-### Homepage
-- Hero section with statistics (500+ active users)
-- Call-to-action button to generate programs
-- Cyberpunk-themed design with scan line animations
-- User programs section
-
-### Generate Program Page
-- Voice-enabled AI assistant (Vapi integration)
-- Real-time conversation with AI
-- Automatic program generation
-
-### Profile Page
-- Display user information
-- List of all fitness programs
-- Toggle between active and archived plans
-- Detailed workout and diet plan views
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Here's how you can help:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 👨‍💻 Author
+## Author
 
 **Nethal Fernando**
 - GitHub: [@nethal17](https://github.com/nethal17)
+- Repository: [PulseMind-FitnessInstructor](https://github.com/nethal17/PulseMind-FitnessInstructor.git)
 
 ## Acknowledgments
 
-- Next.js team for the amazing framework
-- Clerk for authentication
-- Convex for real-time backend
-- Google AI for generative capabilities
-- Vapi for voice AI integration
-- Radix UI for accessible components
+- [Next.js](https://nextjs.org/) - The React framework
+- [Clerk](https://clerk.com/) - Authentication & user management
+- [Convex](https://convex.dev/) - Real-time backend platform
+- [Google AI](https://ai.google.dev/) - Generative AI capabilities
+- [Vapi](https://vapi.ai/) - Voice AI platform
+- [Radix UI](https://www.radix-ui.com/) - Accessible component primitives
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful UI components
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## Support
 
-For support, email your-email@example.com or open an issue in the GitHub repository.
+For support, please:
+- Open an issue on [GitHub](https://github.com/nethal17/fitness-ai/issues)
+- Contact: your-email@example.com
 
 ---
 
-Made with ❤️ and AI
+**Your AI fitness revolution starts here | Nethal Fernando**

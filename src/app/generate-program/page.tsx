@@ -297,7 +297,7 @@ const GenerateProgramPage = () => {
               </div>
 
               <h2 className="text-2xl font-bold text-primary mb-2 font-mono">PulseMind AI</h2>
-              <p className="text-sm text-gray-400 mb-1">Fitness & Diet Coach</p>
+              <p className="text-sm text-gray-300 mb-1">Fitness & Diet Coach</p>
               <p className="text-xs text-gray-500 font-mono">v3.5.0-neural</p>
 
               {/* SPEAKING INDICATOR */}
@@ -378,7 +378,7 @@ const GenerateProgramPage = () => {
               <h2 className="text-2xl font-bold text-primary mb-2 font-mono">
                 {user ? (user.firstName || "User") : "Guest"}
               </h2>
-              <p className="text-sm text-gray-400 mb-1">
+              <p className="text-sm text-gray-300 mb-1">
                 {user ? `${user.firstName || ""} ${user.lastName || ""}`.trim() : "Guest User"}
               </p>
               <p className="text-xs text-gray-500 font-mono">
